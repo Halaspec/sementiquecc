@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE portfolio SYSTEM "portfolio.dtd">
+<portfolio>
+    <about>
+        <bio>Je suis un développeur web passionné avec une expérience en...</bio>
+    </about>
+    <projects>
+        <project>
+            <title>Projet 1</title>
+            <description>Une description de mon premier projet.</description>
+        </project>
+        <project>
+            <title>Projet 2</title>
+            <description>Une description de mon deuxième projet.</description>
+        </project>
+    </projects>
+    <contact>
+        <email>mon.email@example.com</email>
+        <phone>+123456789</phone>
+    </contact>
+</portfolio>

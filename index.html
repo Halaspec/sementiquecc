@@ -3,24 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - Web Sémantique</title>
+    <title>Mon Portfolio</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-        <h1>Portfolio - Cours Web Sémantique</h1>
+        <h1>Mon Portfolio</h1>
     </header>
-    <main>
-        <section>
-            <h2>Étapes d'Apprentissage</h2>
-            <div class="cards-container" id="learning-steps">
-                <!-- Les étapes seront ajoutées ici via JavaScript -->
-            </div>
-        </section> 
-    </main>
-    <footer>
-        <p>&copy; 2024 Mon Portfolio</p>
-    </footer>
-    <script src="scripts.js"></script>
+    <div id="content"></div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            let xhttp = new XMLHttpRequest();
+            xhttp.open('GET', 'portfolio.xml', true);
+            xhttp.onreadystatechange = function () {
+                if (this.readyState === 4 && this.status === 200) {
+                    let xml = this.responseXML;
+                    let xslt = new XMLHttpRequest();
+                    xslt.open('GET', 'portfolio.xsl',true);
+                    xslt.onreadystatechange = function () {
+                        if (this.readyState === 4 && this.status === 200) {
+                            let xsl = this.responseXML;
+                            let processor = new XSLTProcessor();
+                            processor.importStylesheet(xsl);
+                            let resultDocument = processor.transformToFragment(xml, document);
+                            document.getElementById('content').appendChild(resultDocument);
+                        }
+                    };
+                    xslt.send();
+                }
+            };
+            xhttp.send();
+        });
+    </script>
 </body>
 </html>
