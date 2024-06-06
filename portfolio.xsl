@@ -23,7 +23,21 @@
                 <xsl:for-each select="portfolio/projects/project">
                     <div class="project">
                         <h3><xsl:value-of select="title"/></h3>
-                        <p><xsl:value-of select="description"/></p>
+                        <p>
+                            <xsl:choose>
+                                <xsl:when test="steps">
+                                    <strong>Étapes d'Apprentissage :</strong>
+                                    <ul>
+                                        <xsl:for-each select="steps/step">
+                                            <li><xsl:value-of select="."/></li>
+                                        </xsl:for-each>
+                                    </ul>
+                                </xsl:when>
+                                <xsl:otherwise>
+                                    <xsl:value-of select="description"/>
+                                </xsl:otherwise>
+                            </xsl:choose>
+                        </p>
                     </div>
                 </xsl:for-each>
             </section>
@@ -32,6 +46,9 @@
                 <p>Email: <xsl:value-of select="portfolio/contact/email"/></p>
                 <p>Téléphone: <xsl:value-of select="portfolio/contact/phone"/></p>
             </section>
+            <footer>
+                <p><xsl:value-of select="portfolio/footer"/></p>
+            </footer>
         </body>
         </html>
     </xsl:template>

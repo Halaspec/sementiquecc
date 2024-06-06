@@ -19,7 +19,7 @@
                 if (this.readyState === 4 && this.status === 200) {
                     let xml = this.responseXML;
                     let xslt = new XMLHttpRequest();
-                    xslt.open('GET', 'portfolio.xsl',true);
+                    xslt.open('GET', 'portfolio.xsl', true);
                     xslt.onreadystatechange = function () {
                         if (this.readyState === 4 && this.status === 200) {
                             let xsl = this.responseXML;

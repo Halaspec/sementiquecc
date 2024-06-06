@@ -6,16 +6,24 @@
     </about>
     <projects>
         <project>
-            <title>Projet 1</title>
-            <description>Une description de mon premier projet.</description>
+            <title>Portfolio - Cours Web Sémantique</title>
+            <description>
+                <steps>
+                    <step>Introduction au web sémantique</step>
+                    <step>Comprendre les balises HTML5</step>
+                    <step>Utilisation des vocabulaires sémantiques</step>
+                    <step>Évaluation de la qualité des données sémantiques</step>
+                </steps>
+            </description>
         </project>
         <project>
-            <title>Projet 2</title>
-            <description>Une description de mon deuxième projet.</description>
+            <title></title>
+            <description></description>
         </project>
     </projects>
     <contact>
         <email>mon.email@example.com</email>
         <phone>+123456789</phone>
     </contact>
+    <footer>© 2024 Mon Portfolio</footer>
 </portfolio>

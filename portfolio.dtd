@@ -1,10 +1,13 @@
-<!ELEMENT portfolio (about, projects, contact)>
+<!ELEMENT portfolio (about, projects, contact, footer)>
 <!ELEMENT about (bio)>
 <!ELEMENT bio (#PCDATA)>
 <!ELEMENT projects (project+)>
 <!ELEMENT project (title, description)>
 <!ELEMENT title (#PCDATA)>
-<!ELEMENT description (#PCDATA)>
+<!ELEMENT description (#PCDATA | steps)>
+<!ELEMENT steps (step+)>
+<!ELEMENT step (#PCDATA)>
 <!ELEMENT contact (email, phone)>
 <!ELEMENT email (#PCDATA)>
 <!ELEMENT phone (#PCDATA)>
+<!ELEMENT footer (#PCDATA)>
