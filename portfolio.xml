@@ -2,12 +2,16 @@
 <!DOCTYPE portfolio SYSTEM "portfolio.dtd">
 <portfolio>
     <about>
-        <bio>Je suis un développeur web passionné avec une expérience en...</bio>
+        <bio lang="fr">Je suis un développeur web passionné avec une expérience en...</bio>
+        <bio lang="en">I am a passionate web developer with experience in...</bio>
+        <bio lang="es">Soy un desarrollador web apasionado con experiencia en...</bio>
     </about>
     <projects>
         <project>
-            <title>Portfolio - Cours Web Sémantique</title>
-            <description>
+            <title lang="fr">Portfolio - Cours Web Sémantique</title>
+            <title lang="en">Portfolio - Semantic Web Course</title>
+            <title lang="es">Portafolio - Curso de Web Semántica</title>
+            <description lang="fr">
                 <steps>
                     <step>Introduction au web sémantique</step>
                     <step>Comprendre les balises HTML5</step>
@@ -15,19 +19,47 @@
                     <step>Évaluation de la qualité des données sémantiques</step>
                 </steps>
             </description>
+            <description lang="en">
+                <steps>
+                    <step>Introduction to the Semantic Web</step>
+                    <step>Understanding HTML5 tags</step>
+                    <step>Using Semantic Vocabularies</step>
+                    <step>Evaluating the Quality of Semantic Data</step>
+                </steps>
+            </description>
+            <description lang="es">
+                <steps>
+                    <step>Introducción a la web semántica</step>
+                    <step>Comprender las etiquetas HTML5</step>
+                    <step>Uso de vocabularios semánticos</step>
+                    <step>Evaluación de la calidad de los datos semánticos</step>
+                </steps>
+            </description>
         </project>
         <project>
-            <title>Projet 1</title>
-            <description>Une description de mon premier projet.</description>
+            <title lang="fr">Projet 1</title>
+            <title lang="en">Project 1</title>
+            <title lang="es">Proyecto 1</title>
+            <description lang="fr">Une description de mon premier projet.</description>
+            <description lang="en">A description of my first project.</description>
+            <description lang="es">Una descripción de mi primer proyecto.</description>
         </project>
         <project>
-            <title>Projet 2</title>
-            <description>Une description de mon deuxième projet.</description>
+            <title lang="fr">Projet 2</title>
+            <title lang="en">Project 2</title>
+            <title lang="es">Proyecto 2</title>
+            <description lang="fr">Une description de mon deuxième projet.</description>
+            <description lang="en">A description of my second project.</description>
+            <description lang="es">Una descripción de mi segundo proyecto.</description>
         </project>
     </projects>
     <contact>
-        <email>mon.email@example.com</email>
+        <email lang="fr">mon.email@example.com</email>
+        <email lang="en">my.email@example.com</email>
+        <email lang="es">mi.correo@example.com</email>
         <phone>+123456789</phone>
     </contact>
-    <footer>© 2024 Mon Portfolio</footer>
+    <footer lang="fr">© 2024 Mon Portfolio</footer>
+    <footer lang="en">© 2024 My Portfolio</footer>
+    <footer lang="es">© 2024 Mi Portafolio</footer>
 </portfolio>

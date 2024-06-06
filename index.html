@@ -12,37 +12,57 @@
         <nav>
             <label for="language-select">Choisissez la langue:</label>
             <select id="language-select">
-                <option value="portfolio_fr.xml">Français</option>
-                <option value="portfolio_en.xml">Anglais</option>
-                <!-- Ajoutez d'autres langues ici -->
+                <option value="fr">Français</option>
+                <option value="en">Anglais</option>
+                <option value="es">Espagnol</option>
             </select>
         </nav>
     </header>
     <div id="content"></div>
     <script>
-        function loadXML(file) {
+        function loadXML(file, lang) {
             let xhttp = new XMLHttpRequest();
             xhttp.open('GET', file, true);
             xhttp.onreadystatechange = function () {
                 if (this.readyState === 4 && this.status === 200) {
                     let xml = this.responseXML;
-                    let xslt = new XMLHttpRequest();
-                    xslt.open('GET', 'portfolio.xsl', true);
-                    xslt.onreadystatechange = function () {
-                        if (this.readyState === 4 && this.status === 200) {
-                            let xsl = this.responseXML;
-                            let processor = new XSLTProcessor();
-                            processor.importStylesheet(xsl);
-                            let resultDocument = processor.transformToFragment(xml, document);
-                            let content = document.getElementById('content');
-                            content.innerHTML = "";
-                            content.appendChild(resultDocument);
-                        }
-                    };
-                    xslt.send();
+                    renderContent(xml, lang);
                 }
             };
             xhttp.send();
+        }
+
+        function renderContent(xml, lang) {
+            let content = document.getElementById('content');
+            content.innerHTML = "";
+
+            let about = xml.querySelector(`bio[lang="${lang}"]`).textContent;
+            let projects = xml.querySelectorAll('project');
+            let contactEmail = xml.querySelector(`contact email[lang="${lang}"]`).textContent;
+            let contactPhone = xml.querySelector('contact phone').textContent;
+            let footer = xml.querySelector(`footer[lang="${lang}"]`).textContent;
+
+            let aboutSection = `<section id="about"><h2>À propos de moi</h2><p>${about}</p></section>`;
+            let projectsSection = '<section id="projects"><h2>Projets</h2>';
+
+            projects.forEach(project => {
+                let title = project.querySelector(`title[lang="${lang}"]`).textContent;
+                let description = project.querySelector(`description[lang="${lang}"]`);
+                let steps = description.querySelectorAll('step');
+                let descriptionContent = '<ul>';
+                steps.forEach(step => {
+                    descriptionContent += `<li>${step.textContent}</li>`;
+                });
+                descriptionContent += '</ul>';
+
+                projectsSection += `<div class="project"><h3>${title}</h3><p>${descriptionContent}</p></div>`;
+            });
+            projectsSection += '</section>';
+
+            let contactSection = `<section id="contact"><h2>Contact</h2><p>Email: ${contactEmail}</p><p>Téléphone: ${contactPhone}</p></section>`;
+            let footerSection = `<footer><p>${footer}</p></footer>`;
+
+            content.innerHTML = aboutSection + projectsSection + contactSection + footerSection;
         }
 
         document.addEventListener('DOMContentLoaded', () => {
@@ -58,11 +78,11 @@
                 let selectedLanguage = event.target.value;
                 // Enregistrer la langue sélectionnée dans localStorage
                 localStorage.setItem('selectedLanguage', selectedLanguage);
-                loadXML(selectedLanguage);
+                loadXML('portfolio.xml', selectedLanguage);
             });
 
             // Charger la langue par défaut ou la langue enregistrée
-            loadXML(select.value);
+            loadXML('portfolio.xml', select.value);
         });
     </script>
 </body>
