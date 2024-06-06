@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE portfolio SYSTEM "portfolio.dtd">
+<portfolio>
+    <about>
+        <bio>I am a passionate web developer with experience in...</bio>
+    </about>
+    <projects>
+        <project>
+            <title>Portfolio - Semantic Web Course</title>
+            <description>
+                <steps>
+                    <step>Introduction to the Semantic Web</step>
+                    <step>Understanding HTML5 tags</step>
+                    <step>Using Semantic Vocabularies</step>
+                    <step>Evaluating the Quality of Semantic Data</step>
+                </steps>
+            </description>
+        </project>
+        <project>
+            <title>Project 1</title>
+            <description>A description of my first project.</description>
+        </project>
+        <project>
+            <title>Project 2</title>
+            <description>A description of my second project.</description>
+        </project>
+    </projects>
+    <contact>
+        <email>my.email@example.com</email>
+        <phone>+123456789</phone>
+    </contact>
+    <footer>© 2024 My Portfolio</footer>
+</portfolio>

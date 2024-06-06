@@ -17,8 +17,12 @@
             </description>
         </project>
         <project>
-            <title></title>
-            <description></description>
+            <title>Projet 1</title>
+            <description>Une description de mon premier projet.</description>
+        </project>
+        <project>
+            <title>Projet 2</title>
+            <description>Une description de mon deuxième projet.</description>
         </project>
     </projects>
     <contact>

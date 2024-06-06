@@ -7,11 +7,22 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <header>
+        <h1>Mon Portfolio</h1>
+        <nav>
+            <label for="language-select">Choisissez la langue:</label>
+            <select id="language-select">
+                <option value="portfolio_fr.xml">Français</option>
+                <option value="portfolio_en.xml">Anglais</option>
+                <!-- Ajoutez d'autres langues ici -->
+            </select>
+        </nav>
+    </header>
     <div id="content"></div>
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
+        function loadXML(file) {
             let xhttp = new XMLHttpRequest();
-            xhttp.open('GET', 'portfolio.xml', true);
+            xhttp.open('GET', file, true);
             xhttp.onreadystatechange = function () {
                 if (this.readyState === 4 && this.status === 200) {
                     let xml = this.responseXML;
@@ -23,13 +34,35 @@
                             let processor = new XSLTProcessor();
                             processor.importStylesheet(xsl);
                             let resultDocument = processor.transformToFragment(xml, document);
-                            document.getElementById('content').appendChild(resultDocument);
+                            let content = document.getElementById('content');
+                            content.innerHTML = "";
+                            content.appendChild(resultDocument);
                         }
                     };
                     xslt.send();
                 }
             };
             xhttp.send();
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            let select = document.getElementById('language-select');
+
+            // Récupérer la langue enregistrée dans localStorage
+            let savedLanguage = localStorage.getItem('selectedLanguage');
+            if (savedLanguage) {
+                select.value = savedLanguage;
+            }
+
+            select.addEventListener('change', (event) => {
+                let selectedLanguage = event.target.value;
+                // Enregistrer la langue sélectionnée dans localStorage
+                localStorage.setItem('selectedLanguage', selectedLanguage);
+                loadXML(selectedLanguage);
+            });
+
+            // Charger la langue par défaut ou la langue enregistrée
+            loadXML(select.value);
         });
     </script>
 </body>
