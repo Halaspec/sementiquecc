@@ -14,6 +14,7 @@
                 <h1>My Portfolio</h1>
                 <nav>
                     <span class="language-selector">
+                        &#127760; 
                         <select id="languageSelect" onchange="changeLanguage(this.value)">
                             <option value="en">ENG</option>
                             <option value="fr">FR</option>
