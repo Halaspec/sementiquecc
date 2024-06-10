@@ -35,7 +35,9 @@ window.onload = function () {
             snake.body.unshift([snake.body[0][0] - 30, snake.body[0][1]]);
         }
         snake.colision();
-        animationFrame = setTimeout(refreshCanvas, delay);
+        if (animationFrame !== null) {
+            animationFrame = setTimeout(refreshCanvas, delay);
+        }
     }
 
     function drawScore() {
@@ -136,7 +138,9 @@ window.onload = function () {
                 pushX = 0;
                 pushY = 30;
         }
-        snake.setdirection(pushX, pushY);
+        if (animationFrame !== null) {
+            snake.setdirection(pushX, pushY);
+        }
     }
 
     document.getElementById('snake-instructions').addEventListener('click', function() {
@@ -156,6 +160,7 @@ window.onload = function () {
         body = [[360, 270], [390, 270], [420, 270], [450, 270]]; // center the snake
         snake = new Snake(body, 30, 0);
         ball.replace();
+        gameOverMenu.style.display = 'none';
         refreshCanvas();
     }
 

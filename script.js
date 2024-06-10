@@ -163,9 +163,9 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     restartButton.addEventListener('click', () => {
+        resetGame();
         gameOverMenu.style.display = 'none';
         document.getElementById('snake-instructions').style.display = 'block';
-        resetGame();
     });
 
     quitButton.addEventListener('click', () => {
