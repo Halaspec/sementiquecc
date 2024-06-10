@@ -239,17 +239,17 @@ form button:hover {
     100% { transform: rotate(360deg); }
 }
 
-/* Dino game styles */
-#dino-game {
+/* Snake game styles */
+#snake-game {
     text-align: center;
     margin-top: 20px;
 }
 
-#dino-canvas {
+#snake-canvas {
     border: 1px solid #ccc;
 }
 
-#dino-instructions {
+#snake-instructions {
     font-size: 16px;
     margin-top: 10px;
     cursor: pointer;
