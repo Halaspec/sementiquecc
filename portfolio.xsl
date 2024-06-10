@@ -50,7 +50,7 @@
                 </xsl:for-each>
             </main>
             <footer>
-                <p>&copy; 2024 My Portfolio</p>
+                <p> 2024 My Portfolio</p>
             </footer>
         </body>
         </html>
