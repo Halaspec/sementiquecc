@@ -163,4 +163,5 @@ window.onload = function () {
         snake = new Snake(body, 30, 0);
     }
 
-    window.initGame = init
+    window.initGame = init; // Make initGame function globally accessible
+};
