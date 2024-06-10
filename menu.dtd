@@ -1,0 +1,6 @@
+<!ELEMENT menu (item+)>
+<!ELEMENT item (name, content)>
+<!ELEMENT name (lang+)>
+<!ELEMENT content (lang+)>
+<!ELEMENT lang (#PCDATA)>
+<!ATTLIST lang code CDATA #REQUIRED>
