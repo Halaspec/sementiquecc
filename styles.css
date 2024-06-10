@@ -238,3 +238,19 @@ form button:hover {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
+
+/* Dino game styles */
+#dino-game {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#dino-canvas {
+    border: 1px solid #ccc;
+}
+
+#dino-instructions {
+    font-size: 16px;
+    margin-top: 10px;
+    cursor: pointer;
+}
