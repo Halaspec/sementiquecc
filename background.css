@@ -41,10 +41,6 @@
 
 /* Main styles */
 body {
-  margin-top: 13.5rem;
-  color: #999;
-  font: 400 16px/1.5 'Exo', 'Ubuntu', "Segoe UI", Helvetica, Arial, sans-serif;
-  text-align: center;
   background: var(--bg-url) repeat 0 0;
   
   -webkit-animation: bg-scrolling-reverse .92s infinite; /* Safari 4+ */

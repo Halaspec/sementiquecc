@@ -278,13 +278,22 @@ section {
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border: 1px solid rgba(255, 255, 255, 0.33);
-    margin: 5%;
+    margin: 2%;
     padding: 5%;}
 
 
     section#roadmap {
         height: 50vh;
     }
+
+
+    
+main {
+    padding: 2rem;
+    height: 90vh;
+    overflow-y: scroll;
+    width: 100%;
+}
 
 
     .project-card {
