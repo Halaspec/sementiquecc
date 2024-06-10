@@ -11,34 +11,28 @@ function changeLanguage(language) {
     location.reload();
 }
 
-function loadXMLDoc(filename) {
-    return new Promise((resolve, reject) => {
-        const xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function() {
-            if (this.readyState === 4 && this.status === 200) {
-                resolve(this.responseXML);
-            }
-        };
-        xhttp.open("GET", filename, true);
-        xhttp.send();
-    });
-}
-
 async function transformXML(language) {
     try {
-        const xml = await loadXMLDoc('portfolio.xml');
-        const xsl = await loadXMLDoc('portfolio.xsl');
+        const [xmlResponse, xslResponse] = await Promise.all([
+            fetch('portfolio.xml'),
+            fetch('portfolio.xsl')
+        ]);
 
-        if (window.XSLTProcessor) {
-            const xsltProcessor = new XSLTProcessor();
-            xsltProcessor.importStylesheet(xsl);
-            xsltProcessor.setParameter(null, "language", language);
-            const resultDocument = xsltProcessor.transformToFragment(xml, document);
-            document.getElementById('content-container').appendChild(resultDocument);
-        } else {
-            const resultDocument = xml.transformNode(xsl);
-            document.getElementById('content-container').innerHTML = resultDocument;
-        }
+        const xmlText = await xmlResponse.text();
+        const xslText = await xslResponse.text();
+
+        const parser = new DOMParser();
+        const xml = parser.parseFromString(xmlText, 'text/xml');
+        const xsl = parser.parseFromString(xslText, 'text/xml');
+
+        const processor = new XSLTProcessor();
+        processor.importStylesheet(xsl);
+        processor.setParameter(null, 'language', language);
+
+        const resultDocument = processor.transformToDocument(xml);
+        const resultHtml = new XMLSerializer().serializeToString(resultDocument);
+
+        document.getElementById('content-container').innerHTML = resultHtml;
     } catch (error) {
         console.error("Error loading XML or XSL:", error);
     }
