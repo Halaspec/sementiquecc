@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="roadmap.css">
+    <script src="https://cdn.jsdelivr.net/npm/muuri@0.9.0/dist/muuri.min.js"></script>
 </head>
 <body>
     <div id="loader" class="loader"></div>
@@ -15,6 +17,7 @@
                 <li><a href="#home" data-target="home" data-en="Home" data-fr="Accueil" data-es="Inicio">Home</a></li>
                 <li><a href="#about" data-target="about" data-en="About" data-fr="À propos" data-es="Acerca de">About</a></li>
                 <li><a href="#projects" data-target="projects" data-en="Projects" data-fr="Projets" data-es="Proyectos">Projects</a></li>
+                <li><a href="#roadmap" data-target="roadmap" data-en="Roadmap" data-fr="Feuille de route" data-es="Hoja de ruta">Roadmap</a></li>
                 <li><a href="#contact" data-target="contact" data-en="Contact" data-fr="Contact" data-es="Contacto">Contact</a></li>
                 <li>
                     <select id="languageSelect">
@@ -66,6 +69,42 @@
                 <p id="project4" class="project-description" data-en="Implemented a comprehensive monitoring and logging solution using Prometheus and Grafana. Set up alerts and dashboards to monitor system performance and health. Technologies used: Prometheus, Grafana, ELK Stack." data-fr="Mise en œuvre d'une solution complète de surveillance et de journalisation utilisant Prometheus et Grafana. Configuration des alertes et des tableaux de bord pour surveiller les performances et l'état du système. Technologies utilisées : Prometheus, Grafana, ELK Stack." data-es="Implementé una solución integral de monitoreo y registro utilizando Prometheus y Grafana. Configuré alertas y paneles para monitorear el rendimiento y la salud del sistema. Tecnologías utilizadas: Prometheus, Grafana, ELK Stack.">Implemented a comprehensive monitoring and logging solution using Prometheus and Grafana. Set up alerts and dashboards to monitor system performance and health. Technologies used: Prometheus, Grafana, ELK Stack.</p>
             </div>
         </section>
+        <section id="roadmap" class="content">
+            <h1 data-en="Roadmap" data-fr="Feuille de route" data-es="Hoja de ruta">Roadmap</h1>
+            <div class="drag-container"></div>
+            <div class="board">
+                <div class="board-column todo">
+                    <div class="board-column-container">
+                        <div class="board-column-header">Todo</div>
+                        <div class="board-column-content-wrapper">
+                            <div class="board-column-content">
+                                <div class="board-item"><div class="board-item-content"><span>Item #</span>1</div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="board-column working">
+                    <div class="board-column-container">
+                        <div class="board-column-header">Working</div>
+                        <div class="board-column-content-wrapper">
+                            <div class="board-column-content">
+                                <div class="board-item"><div class="board-item-content"><span>Item #</span>6</div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="board-column done">
+                    <div class="board-column-container">
+                        <div class="board-column-header">Done</div>
+                        <div class="board-column-content-wrapper">
+                            <div class="board-column-content">
+                                <div class="board-item"><div class="board-item-content"><span>Item #</span>11</div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
     <!-- Contact Modal -->
@@ -100,5 +139,6 @@
 
     <script src="script.js"></script>
     <script src="snake-game.js"></script>
+    <script src="roadmap.js"></script>
 </body>
 </html>
