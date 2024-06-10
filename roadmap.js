@@ -1,22 +1,14 @@
-window.addEventListener('load', function () {
+window.onload = function() {
+    // Code to initialize Muuri here
+    initRoadmap();
+};
+
+function initRoadmap() {
     var dragContainer = document.querySelector('.drag-container');
     var itemContainers = [].slice.call(document.querySelectorAll('.board-column-content'));
     var columnGrids = [];
     var boardGrid;
 
-    // Function to add invisible placeholders to each container
-    function addInvisiblePlaceholders() {
-        itemContainers.forEach(function(container) {
-            var invisiblePlaceholder = document.createElement('div');
-            invisiblePlaceholder.classList.add('board-item', 'invisible-placeholder');
-            var innerContent = document.createElement('div');
-            innerContent.classList.add('board-item-content');
-            invisiblePlaceholder.appendChild(innerContent);
-            container.appendChild(invisiblePlaceholder);
-        });
-    }
-
-    // Initialize the column grids so we can drag those items around.
     itemContainers.forEach(function (container) {
         var grid = new Muuri(container, {
             items: '.board-item',
@@ -32,12 +24,9 @@ window.addEventListener('load', function () {
                         { element: item.getGrid().getElement().parentNode, priority: 1 },
                     ];
                 }
-            },
-            dragStartPredicate: function (item, event) {
-                return !item.getElement().classList.contains('invisible-placeholder');
             }
         })
-        .on('dragInit', function (item) {
+        .on('dragStart', function (item) {
             item.getElement().style.width = item.getWidth() + 'px';
             item.getElement().style.height = item.getHeight() + 'px';
         })
@@ -53,20 +42,16 @@ window.addEventListener('load', function () {
         columnGrids.push(grid);
     });
 
-    // Initialize the board grid so we can drag those columns around.
     boardGrid = new Muuri('.board', {
         dragEnabled: true,
-        dragHandle: '.board-column-header'
+        dragHandle: '.board-column-header',
+        layoutOnInit: true
     });
 
-    // Add invisible placeholders to each container
-    addInvisiblePlaceholders();
-
-    // Refresh the layout to ensure everything is correctly positioned
     setTimeout(function() {
         boardGrid.refreshItems().layout();
         columnGrids.forEach(function(grid) {
             grid.refreshItems().layout();
         });
-    }, 100);
-});
+    }, 500); // Ensure all layouts are refreshed after a slight delay
+}

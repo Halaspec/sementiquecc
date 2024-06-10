@@ -42,7 +42,8 @@
 /* Main styles */
 body {
   background: var(--bg-url) repeat 0 0;
-  
+  padding: 0;
+  margin: 0;
   -webkit-animation: bg-scrolling-reverse .92s infinite; /* Safari 4+ */
   -moz-animation:    bg-scrolling-reverse .92s infinite; /* Fx 5+ */
   -o-animation:      bg-scrolling-reverse .92s infinite; /* Opera 12+ */
