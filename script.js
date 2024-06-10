@@ -15,10 +15,6 @@ document.addEventListener("DOMContentLoaded", function() {
     const closeButtons = document.querySelectorAll('.close-button');
     const openGameButton = document.getElementById('open-game');
     const fullscreenButton = document.getElementById('fullscreen-button');
-    const restartButton = document.getElementById('restart-button');
-    const quitButton = document.getElementById('quit-button');
-    const gameOverMenu = document.getElementById('game-over-menu');
-    const finalScore = document.getElementById('final-score');
 
     // Loader
     const loader = document.getElementById('loader');
@@ -162,23 +158,9 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
-    restartButton.addEventListener('click', () => {
-        resetGame();
-        gameOverMenu.style.display = 'none';
-        document.getElementById('snake-instructions').style.display = 'block';
-    });
-
-    quitButton.addEventListener('click', () => {
-        gameModal.style.display = 'none';
-        gameOverMenu.style.display = 'none';
-        resetGame();
-    });
-
     function resetGame() {
         clearTimeout(animationFrame);
         animationFrame = null;
-        finalScore.textContent = '';
-        document.getElementById('snake-instructions').style.display = 'block';
-        window.initGame(); // Re-initialize the game
+        window.location.reload(); // Reload the page
     }
 });

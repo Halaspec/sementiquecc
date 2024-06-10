@@ -8,8 +8,6 @@ window.onload = function () {
     var snake;
     var ball;
     var animationFrame;
-    var gameOverMenu = document.getElementById('game-over-menu');
-    var finalScore = document.getElementById('final-score');
 
     function init() {
         canvas.style.border = "5px solid black";
@@ -91,10 +89,10 @@ window.onload = function () {
             if (this.y != 0) this.moveY(this.y);
         }
         this.lose = function () {
-            finalScore.textContent = `Your final score is: ${score}`;
-            gameOverMenu.style.display = 'block';
+            alert(`Your final score is: ${score}`);
             clearTimeout(animationFrame);
             animationFrame = null;
+            window.location.reload(); // Reload the page
         }
     }
 
@@ -157,14 +155,12 @@ window.onload = function () {
         score = 0;
         resetSnake(); // center the snake
         ball.replace();
-        gameOverMenu.style.display = 'none';
         refreshCanvas();
     }
 
     function resetSnake() {
-        body = [[360, 270], [390, 270], [420, 270], [450, 270]]; // center the snake
+        var body = [[360, 270], [390, 270], [420, 270], [450, 270]]; // center the snake
         snake = new Snake(body, 30, 0);
     }
 
-    window.initGame = init; // Make initGame function globally accessible
-};
+    window.initGame = init
