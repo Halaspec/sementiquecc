@@ -9,17 +9,18 @@
 <body>
     <div id="loader" class="loader"></div>
     <header>
-        <a href="#home" class="logo" data-en="My Portfolio" data-fr="Mon Portefeuille">My Portfolio</a>
+        <a href="#home" class="logo" data-en="My Portfolio" data-fr="Mon Portefeuille" data-es="Mi Portafolio">My Portfolio</a>
         <nav>
             <ul class="menu">
-                <li><a href="#home" data-target="home" data-en="Home" data-fr="Accueil">Home</a></li>
-                <li><a href="#about" data-target="about" data-en="About" data-fr="À propos">About</a></li>
-                <li><a href="#projects" data-target="projects" data-en="Projects" data-fr="Projets">Projects</a></li>
-                <li><a href="#contact" data-target="contact" data-en="Contact" data-fr="Contact">Contact</a></li>
+                <li><a href="#home" data-target="home" data-en="Home" data-fr="Accueil" data-es="Inicio">Home</a></li>
+                <li><a href="#about" data-target="about" data-en="About" data-fr="À propos" data-es="Acerca de">About</a></li>
+                <li><a href="#projects" data-target="projects" data-en="Projects" data-fr="Projets" data-es="Proyectos">Projects</a></li>
+                <li><a href="#contact" data-target="contact" data-en="Contact" data-fr="Contact" data-es="Contacto">Contact</a></li>
                 <li>
                     <select id="languageSelect">
                         <option value="en">English</option>
                         <option value="fr">French</option>
+                        <option value="es">Spanish</option>
                     </select>
                 </li>
             </ul>
@@ -28,32 +29,40 @@
     </header>
     <main>
         <section id="home" class="content active">
-            <h1 data-en="Welcome to My Portfolio" data-fr="Bienvenue dans mon portefeuille">Welcome to My Portfolio</h1>
-            <p data-en="This is the home section." data-fr="Ceci est la section d'accueil.">This is the home section.</p>
+            <h1 data-en="Welcome to My Portfolio" data-fr="Bienvenue dans mon portefeuille" data-es="Bienvenido a mi portafolio">Welcome to My Portfolio</h1>
+            <p data-en="This is the home section." data-fr="Ceci est la section d'accueil." data-es="Esta es la sección de inicio.">This is the home section.</p>
         </section>
         <section id="about" class="content">
-            <h1 data-en="About Me" data-fr="À propos de moi">About Me</h1>
+            <h1 data-en="About Me" data-fr="À propos de moi" data-es="Acerca de mí">About Me</h1>
             <img src="your-photo.jpg" alt="Your Photo" class="about-photo">
-            <p data-en="I am an Algerian developer currently working as a system administrator apprentice." data-fr="Je suis un développeur algérien travaillant actuellement en tant qu'apprenti administrateur système.">I am an Algerian developer currently working as a system administrator apprentice.</p>
-            <p data-en="With a passion for technology and problem-solving, I specialize in developing robust applications, implementing CI/CD pipelines, and managing complex IT infrastructures." data-fr="Avec une passion pour la technologie et la résolution de problèmes, je me spécialise dans le développement d'applications robustes, la mise en œuvre de pipelines CI/CD et la gestion d'infrastructures informatiques complexes.">With a passion for technology and problem-solving, I specialize in developing robust applications, implementing CI/CD pipelines, and managing complex IT infrastructures.</p>
+            <p data-en="I am an Algerian developer currently working as a system administrator apprentice." data-fr="Je suis un développeur algérien travaillant actuellement en tant qu'apprenti administrateur système." data-es="Soy un desarrollador argelino que actualmente trabaja como aprendiz de administrador de sistemas.">I am an Algerian developer currently working as a system administrator apprentice.</p>
+            <p data-en="With a passion for technology and problem-solving, I specialize in developing robust applications, implementing CI/CD pipelines, and managing complex IT infrastructures." data-fr="Avec une passion pour la technologie et la résolution de problèmes, je me spécialise dans le développement d'applications robustes, la mise en œuvre de pipelines CI/CD et la gestion d'infrastructures informatiques complexes." data-es="Con una pasión por la tecnología y la resolución de problemas, me especializo en desarrollar aplicaciones robustas, implementar tuberías CI/CD y gestionar infraestructuras informáticas complejas.">With a passion for technology and problem-solving, I specialize in developing robust applications, implementing CI/CD pipelines, and managing complex IT infrastructures.</p>
+            <p data-en="Skills:" data-fr="Compétences:" data-es="Habilidades:">Skills:</p>
+            <ul>
+                <li data-en="Programming Languages: JavaScript, Python, Java" data-fr="Langages de programmation : JavaScript, Python, Java" data-es="Lenguajes de programación: JavaScript, Python, Java">Programming Languages: JavaScript, Python, Java</li>
+                <li data-en="Web Technologies: HTML, CSS, React, Node.js" data-fr="Technologies Web : HTML, CSS, React, Node.js" data-es="Tecnologías web: HTML, CSS, React, Node.js">Web Technologies: HTML, CSS, React, Node.js</li>
+                <li data-en="DevOps Tools: Docker, Jenkins, Kubernetes" data-fr="Outils DevOps : Docker, Jenkins, Kubernetes" data-es="Herramientas DevOps: Docker, Jenkins, Kubernetes">DevOps Tools: Docker, Jenkins, Kubernetes</li>
+                <li data-en="Cloud Platforms: AWS, Azure" data-fr="Plateformes cloud : AWS, Azure" data-es="Plataformas en la nube: AWS, Azure">Cloud Platforms: AWS, Azure</li>
+                <li data-en="System Administration: Linux, Windows Server" data-fr="Administration système : Linux, Windows Server" data-es="Administración de sistemas: Linux, Windows Server">System Administration: Linux, Windows Server</li>
+            </ul>
         </section>
         <section id="projects" class="content">
-            <h1 data-en="My Projects" data-fr="Mes Projets">My Projects</h1>
+            <h1 data-en="My Projects" data-fr="Mes Projets" data-es="Mis Proyectos">My Projects</h1>
             <div class="project-card">
-                <h2 class="project-title" data-target="project1" data-en="E-commerce Website Development" data-fr="Développement de site de commerce électronique">E-commerce Website Development</h2>
-                <p id="project1" class="project-description" data-en="Developed a full-stack e-commerce website using React, Node.js, and MongoDB. Implemented user authentication, product management, and payment integration." data-fr="Développement d'un site de commerce électronique full-stack utilisant React, Node.js et MongoDB. Mise en place de l'authentification des utilisateurs, de la gestion des produits et de l'intégration des paiements.">Developed a full-stack e-commerce website using React, Node.js, and MongoDB. Implemented user authentication, product management, and payment integration.</p>
+                <h2 class="project-title" data-target="project1" data-en="E-commerce Website Development" data-fr="Développement de site de commerce électronique" data-es="Desarrollo de sitio web de comercio electrónico">E-commerce Website Development</h2>
+                <p id="project1" class="project-description" data-en="Developed a full-stack e-commerce website using React, Node.js, and MongoDB. Implemented user authentication, product management, and payment integration. Technologies used: React, Node.js, MongoDB, Express.js." data-fr="Développement d'un site de commerce électronique full-stack utilisant React, Node.js et MongoDB. Mise en place de l'authentification des utilisateurs, de la gestion des produits et de l'intégration des paiements. Technologies utilisées : React, Node.js, MongoDB, Express.js." data-es="Desarrollé un sitio web de comercio electrónico de pila completa utilizando React, Node.js y MongoDB. Implementé autenticación de usuarios, gestión de productos e integración de pagos. Tecnologías utilizadas: React, Node.js, MongoDB, Express.js.">Developed a full-stack e-commerce website using React, Node.js, and MongoDB. Implemented user authentication, product management, and payment integration. Technologies used: React, Node.js, MongoDB, Express.js.</p>
             </div>
             <div class="project-card">
-                <h2 class="project-title" data-target="project2" data-en="CI/CD Pipeline for Microservices" data-fr="Pipeline CI/CD pour les microservices">CI/CD Pipeline for Microservices</h2>
-                <p id="project2" class="project-description" data-en="Designed and implemented a CI/CD pipeline using Jenkins and Docker for a microservices-based application. Automated testing, building, and deployment processes." data-fr="Conception et mise en œuvre d'un pipeline CI/CD utilisant Jenkins et Docker pour une application basée sur des microservices. Processus de test, de construction et de déploiement automatisés.">Designed and implemented a CI/CD pipeline using Jenkins and Docker for a microservices-based application. Automated testing, building, and deployment processes.</p>
+                <h2 class="project-title" data-target="project2" data-en="CI/CD Pipeline for Microservices" data-fr="Pipeline CI/CD pour les microservices" data-es="Tubería CI/CD para microservicios">CI/CD Pipeline for Microservices</h2>
+                <p id="project2" class="project-description" data-en="Designed and implemented a CI/CD pipeline using Jenkins and Docker for a microservices-based application. Automated testing, building, and deployment processes. Technologies used: Jenkins, Docker, Kubernetes." data-fr="Conception et mise en œuvre d'un pipeline CI/CD utilisant Jenkins et Docker pour une application basée sur des microservices. Processus de test, de construction et de déploiement automatisés. Technologies utilisées : Jenkins, Docker, Kubernetes." data-es="Diseñé e implementé una tubería CI/CD utilizando Jenkins y Docker para una aplicación basada en microservicios. Procesos de prueba, construcción y despliegue automatizados. Tecnologías utilizadas: Jenkins, Docker, Kubernetes.">Designed and implemented a CI/CD pipeline using Jenkins and Docker for a microservices-based application. Automated testing, building, and deployment processes. Technologies used: Jenkins, Docker, Kubernetes.</p>
             </div>
             <div class="project-card">
-                <h2 class="project-title" data-target="project3" data-en="Cloud Infrastructure Management" data-fr="Gestion de l'infrastructure cloud">Cloud Infrastructure Management</h2>
-                <p id="project3" class="project-description" data-en="Managed cloud infrastructure using AWS. Set up and configured EC2 instances, S3 storage, and RDS databases. Ensured high availability and security of the infrastructure." data-fr="Gestion de l'infrastructure cloud utilisant AWS. Mise en place et configuration des instances EC2, du stockage S3 et des bases de données RDS. Assurer une haute disponibilité et la sécurité de l'infrastructure.">Managed cloud infrastructure using AWS. Set up and configured EC2 instances, S3 storage, and RDS databases. Ensured high availability and security of the infrastructure.</p>
+                <h2 class="project-title" data-target="project3" data-en="Cloud Infrastructure Management" data-fr="Gestion de l'infrastructure cloud" data-es="Gestión de infraestructura en la nube">Cloud Infrastructure Management</h2>
+                <p id="project3" class="project-description" data-en="Managed cloud infrastructure using AWS. Set up and configured EC2 instances, S3 storage, and RDS databases. Ensured high availability and security of the infrastructure. Technologies used: AWS EC2, S3, RDS." data-fr="Gestion de l'infrastructure cloud utilisant AWS. Mise en place et configuration des instances EC2, du stockage S3 et des bases de données RDS. Assurer une haute disponibilité et la sécurité de l'infrastructure. Technologies utilisées : AWS EC2, S3, RDS." data-es="Gestioné infraestructura en la nube utilizando AWS. Configuré y configuré instancias EC2, almacenamiento S3 y bases de datos RDS. Aseguré alta disponibilidad y seguridad de la infraestructura. Tecnologías utilizadas: AWS EC2, S3, RDS.">Managed cloud infrastructure using AWS. Set up and configured EC2 instances, S3 storage, and RDS databases. Ensured high availability and security of the infrastructure. Technologies used: AWS EC2, S3, RDS.</p>
             </div>
             <div class="project-card">
-                <h2 class="project-title" data-target="project4" data-en="System Monitoring and Logging" data-fr="Surveillance et journalisation des systèmes">System Monitoring and Logging</h2>
-                <p id="project4" class="project-description" data-en="Implemented a comprehensive monitoring and logging solution using Prometheus and Grafana. Set up alerts and dashboards to monitor system performance and health." data-fr="Mise en œuvre d'une solution complète de surveillance et de journalisation utilisant Prometheus et Grafana. Configuration des alertes et des tableaux de bord pour surveiller les performances et l'état du système.">Implemented a comprehensive monitoring and logging solution using Prometheus and Grafana. Set up alerts and dashboards to monitor system performance and health.</p>
+                <h2 class="project-title" data-target="project4" data-en="System Monitoring and Logging" data-fr="Surveillance et journalisation des systèmes" data-es="Monitoreo y registro del sistema">System Monitoring and Logging</h2>
+                <p id="project4" class="project-description" data-en="Implemented a comprehensive monitoring and logging solution using Prometheus and Grafana. Set up alerts and dashboards to monitor system performance and health. Technologies used: Prometheus, Grafana, ELK Stack." data-fr="Mise en œuvre d'une solution complète de surveillance et de journalisation utilisant Prometheus et Grafana. Configuration des alertes et des tableaux de bord pour surveiller les performances et l'état du système. Technologies utilisées : Prometheus, Grafana, ELK Stack." data-es="Implementé una solución integral de monitoreo y registro utilizando Prometheus y Grafana. Configuré alertas y paneles para monitorear el rendimiento y la salud del sistema. Tecnologías utilizadas: Prometheus, Grafana, ELK Stack.">Implemented a comprehensive monitoring and logging solution using Prometheus and Grafana. Set up alerts and dashboards to monitor system performance and health. Technologies used: Prometheus, Grafana, ELK Stack.</p>
             </div>
         </section>
     </main>
@@ -62,17 +71,17 @@
     <div id="contactModal" class="modal">
         <div class="modal-content">
             <span class="close-button">&times;</span>
-            <h1 data-en="Contact Me" data-fr="Contactez-moi">Contact Me</h1>
+            <h1 data-en="Contact Me" data-fr="Contactez-moi" data-es="Contáctame">Contact Me</h1>
             <form id="contactForm">
                 <div>
-                    <label for="email" data-en="Email:" data-fr="Email:">Email:</label>
+                    <label for="email" data-en="Email:" data-fr="Email:" data-es="Correo electrónico:">Email:</label>
                     <input type="email" id="email" name="email" required>
                 </div>
                 <div>
-                    <label for="message" data-en="Message:" data-fr="Message:">Message:</label>
+                    <label for="message" data-en="Message:" data-fr="Message:" data-es="Mensaje:">Message:</label>
                     <textarea id="message" name="message" required></textarea>
                 </div>
-                <button type="submit" data-en="Send" data-fr="Envoyer">Send</button>
+                <button type="submit" data-en="Send" data-fr="Envoyer" data-es="Enviar">Send</button>
                 <div id="formMessage" class="form-message"></div>
             </form>
         </div>
