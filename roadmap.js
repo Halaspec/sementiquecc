@@ -4,23 +4,16 @@ window.addEventListener('load', function () {
     var columnGrids = [];
     var boardGrid;
 
-    // Function to add a placeholder to empty containers
-    function addPlaceholders() {
+    // Function to add invisible placeholders to each container
+    function addInvisiblePlaceholders() {
         itemContainers.forEach(function(container) {
-            if (container.children.length === 0) {
-                var placeholder = document.createElement('div');
-                placeholder.classList.add('placeholder');
-                placeholder.innerHTML = 'Drop items here';
-                container.appendChild(placeholder);
-            }
-        });
-    }
-
-    // Function to remove placeholders
-    function removePlaceholders() {
-        var placeholders = document.querySelectorAll('.placeholder');
-        placeholders.forEach(function(placeholder) {
-            placeholder.parentNode.removeChild(placeholder);
+            var invisiblePlaceholder = document.createElement('div');
+            invisiblePlaceholder.classList.add('board-item', 'invisible-placeholder');
+            var innerContent = document.createElement('div');
+            innerContent.classList.add('board-item-content');
+            innerContent.textContent = 'Invisible Placeholder';
+            invisiblePlaceholder.appendChild(innerContent);
+            container.appendChild(invisiblePlaceholder);
         });
     }
 
@@ -45,13 +38,11 @@ window.addEventListener('load', function () {
         .on('dragInit', function (item) {
             item.getElement().style.width = item.getWidth() + 'px';
             item.getElement().style.height = item.getHeight() + 'px';
-            removePlaceholders();
         })
         .on('dragReleaseEnd', function (item) {
             item.getElement().style.width = '';
             item.getElement().style.height = '';
             item.getGrid().refreshItems([item]);
-            addPlaceholders();
         })
         .on('layoutStart', function () {
             boardGrid.refreshItems().layout();
@@ -66,8 +57,8 @@ window.addEventListener('load', function () {
         dragHandle: '.board-column-header'
     });
 
-    // Initial call to add placeholders to empty containers
-    addPlaceholders();
+    // Add invisible placeholders to each container
+    addInvisiblePlaceholders();
 
     // Refresh the layout to ensure everything is correctly positioned
     setTimeout(function() {

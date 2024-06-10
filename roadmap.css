@@ -114,4 +114,6 @@
     justify-content: center;
 }
 
-  
+.invisible-placeholder {
+  opacity: 0;
+}
