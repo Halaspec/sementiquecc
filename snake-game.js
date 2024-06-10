@@ -4,8 +4,8 @@ window.onload = function () {
     var ctx = canvas.getContext('2d');
     var delay = 75; //1s
     var blocksize = 30;
-    var defaultbody = [[0, 0], [30, 0], [60, 0], [90, 0]];
-    var body = [[0, 0], [30, 0], [60, 0], [90, 0]]; // max width 900 - 10  max height 600 -10
+    var defaultbody = [[360, 270], [390, 270], [420, 270], [450, 270]]; // centered snake body
+    var body = [[360, 270], [390, 270], [420, 270], [450, 270]]; // max width 900 - 10  max height 600 -10
     var score = 0;
     var snake;
     var ball;
@@ -159,5 +159,5 @@ window.onload = function () {
         refreshCanvas();
     }
 
-    window.resetGame = resetGame;
+    window.initGame = init; // Make initGame function globally accessible
 };
