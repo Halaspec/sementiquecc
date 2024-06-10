@@ -11,7 +11,6 @@ window.addEventListener('load', function () {
             invisiblePlaceholder.classList.add('board-item', 'invisible-placeholder');
             var innerContent = document.createElement('div');
             innerContent.classList.add('board-item-content');
-            innerContent.textContent = 'Invisible Placeholder';
             invisiblePlaceholder.appendChild(innerContent);
             container.appendChild(invisiblePlaceholder);
         });
@@ -34,6 +33,9 @@ window.addEventListener('load', function () {
                     ];
                 }
             },
+            dragStartPredicate: function (item, event) {
+                return !item.getElement().classList.contains('invisible-placeholder');
+            }
         })
         .on('dragInit', function (item) {
             item.getElement().style.width = item.getWidth() + 'px';
