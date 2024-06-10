@@ -4,8 +4,6 @@ window.onload = function () {
     var ctx = canvas.getContext('2d');
     var delay = 75; //1s
     var blocksize = 30;
-    var defaultbody = [[360, 270], [390, 270], [420, 270], [450, 270]]; // centered snake body
-    var body = [[360, 270], [390, 270], [420, 270], [450, 270]]; // max width 900 - 10  max height 600 -10
     var score = 0;
     var snake;
     var ball;
@@ -18,7 +16,7 @@ window.onload = function () {
         canvas.style.background = "WHITE";
         ctx.font = "bold 200px sans-serif";
         ctx.textBaseline = "middle";
-        snake = new Snake(body, 30, 0);
+        resetSnake();
         ball = new Eat(Math.floor(Math.random() * 30) * 30, Math.floor(Math.random() * 20) * 30);
         refreshCanvas();
     }
@@ -157,11 +155,15 @@ window.onload = function () {
 
     function resetGame() {
         score = 0;
-        body = [[360, 270], [390, 270], [420, 270], [450, 270]]; // center the snake
-        snake = new Snake(body, 30, 0);
+        resetSnake(); // center the snake
         ball.replace();
         gameOverMenu.style.display = 'none';
         refreshCanvas();
+    }
+
+    function resetSnake() {
+        body = [[360, 270], [390, 270], [420, 270], [450, 270]]; // center the snake
+        snake = new Snake(body, 30, 0);
     }
 
     window.initGame = init; // Make initGame function globally accessible
