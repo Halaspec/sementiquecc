@@ -117,3 +117,8 @@ body {
   visibility: hidden;
   pointer-events: none;
 }
+
+.board-column-container {
+  height: 210px;
+  overflow: scroll;
+}

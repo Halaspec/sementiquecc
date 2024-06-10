@@ -1,5 +1,6 @@
 window.onload = function() {
     initRoadmap();  // Initialize the roadmap after everything is loaded
+    setInterval(refreshGrids, 5000);  // Rafraîchir la grille toutes les 5 secondes
 };
 
 window.addEventListener('resize', function() {
