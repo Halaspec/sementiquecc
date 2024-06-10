@@ -282,5 +282,8 @@ section {
     padding: 5%;}
 
 
+    section#roadmap {
+        height: 50vh;
+    }
 
 

@@ -99,4 +99,19 @@
       display: none;
     }
   }
+
+  .placeholder {
+    background-color: #e0e0e0;
+    border: 2px dashed #ccc;
+    border-radius: 4px;
+    padding: 20px;
+    text-align: center;
+    font-size: 14px;
+    color: #777;
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
   
