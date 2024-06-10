@@ -163,6 +163,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     restartButton.addEventListener('click', () => {
+        resetGame();
         gameOverMenu.style.display = 'none';
         document.getElementById('snake-instructions').style.display = 'block';
     });
@@ -177,5 +178,9 @@ document.addEventListener("DOMContentLoaded", function() {
         clearTimeout(animationFrame);
         animationFrame = null;
         finalScore.textContent = '';
+        score = 0;
+        body = [[canvas.width / 2 - blocksize * 2, canvas.height / 2], [canvas.width / 2 - blocksize, canvas.height / 2], [canvas.width / 2, canvas.height / 2], [canvas.width / 2 + blocksize, canvas.height / 2]];
+        snake = new Snake(body, blocksize, 0);
+        ball = new Eat(Math.floor(Math.random() * 30) * blocksize, Math.floor(Math.random() * 20) * blocksize);
     }
 });

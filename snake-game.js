@@ -150,4 +150,14 @@ window.onload = function () {
             document.getElementById('snake-instructions').style.display = 'none';
         }
     });
+
+    function resetGame() {
+        score = 0;
+        body = [[360, 270], [390, 270], [420, 270], [450, 270]]; // center the snake
+        snake = new Snake(body, 30, 0);
+        ball.replace();
+        refreshCanvas();
+    }
+
+    window.resetGame = resetGame;
 };
