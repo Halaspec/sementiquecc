@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", function() {
     let gameSpeed = 3;
     let score = 0;
     let animationId;
+    let isGameRunning = false;
 
     function drawDino() {
         ctx.fillStyle = 'green';
@@ -54,6 +55,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 dino.y < obs.y + obs.height &&
                 dino.height + dino.y > obs.y) {
                 cancelAnimationFrame(animationId);
+                isGameRunning = false;
                 alert(`Game Over! Your score: ${score}`);
                 document.location.reload();
             }
@@ -61,6 +63,8 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     function gameLoop() {
+        if (!isGameRunning) return;
+
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
         updateDino();
@@ -77,13 +81,19 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     document.addEventListener('keydown', function(e) {
-        if (e.code === 'Space' && dino.y === 150) {
+        if (e.code === 'Space' && dino.y === 150 && isGameRunning) {
             dino.jump = true;
         }
     });
 
     document.getElementById('dino-instructions').addEventListener('click', function() {
-        requestAnimationFrame(gameLoop);
-        document.getElementById('dino-instructions').style.display = 'none';
+        if (!isGameRunning) {
+            isGameRunning = true;
+            score = 0;
+            obstacles = [];
+            dino = { x: 50, y: 150, width: 20, height: 20, dy: 0, jump: false };
+            document.getElementById('dino-instructions').style.display = 'none';
+            requestAnimationFrame(gameLoop);
+        }
     });
 });
