@@ -15,6 +15,10 @@ document.addEventListener("DOMContentLoaded", function() {
     const closeButtons = document.querySelectorAll('.close-button');
     const openGameButton = document.getElementById('open-game');
     const fullscreenButton = document.getElementById('fullscreen-button');
+    const restartButton = document.getElementById('restart-button');
+    const quitButton = document.getElementById('quit-button');
+    const gameOverMenu = document.getElementById('game-over-menu');
+    const finalScore = document.getElementById('final-score');
 
     // Loader
     const loader = document.getElementById('loader');
@@ -74,6 +78,7 @@ document.addEventListener("DOMContentLoaded", function() {
         button.addEventListener('click', () => {
             contactModal.style.display = 'none';
             gameModal.style.display = 'none';
+            resetGame();
         });
     });
 
@@ -83,6 +88,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
         if (e.target === gameModal) {
             gameModal.style.display = 'none';
+            resetGame();
         }
     });
 
@@ -155,4 +161,21 @@ document.addEventListener("DOMContentLoaded", function() {
             canvas.msRequestFullscreen();
         }
     });
+
+    restartButton.addEventListener('click', () => {
+        gameOverMenu.style.display = 'none';
+        document.getElementById('snake-instructions').style.display = 'block';
+    });
+
+    quitButton.addEventListener('click', () => {
+        gameModal.style.display = 'none';
+        gameOverMenu.style.display = 'none';
+        resetGame();
+    });
+
+    function resetGame() {
+        clearTimeout(animationFrame);
+        animationFrame = null;
+        finalScore.textContent = '';
+    }
 });

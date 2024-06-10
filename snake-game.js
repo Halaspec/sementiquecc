@@ -10,6 +10,8 @@ window.onload = function () {
     var snake;
     var ball;
     var animationFrame;
+    var gameOverMenu = document.getElementById('game-over-menu');
+    var finalScore = document.getElementById('final-score');
 
     function init() {
         canvas.style.border = "5px solid black";
@@ -89,11 +91,10 @@ window.onload = function () {
             if (this.y != 0) this.moveY(this.y);
         }
         this.lose = function () {
-            alert("You lose, your score is: " + score + " points");
-            score = 0;
-            this.body = [...defaultbody];
-            this.x = 30;
-            this.y = 0; // reset start
+            finalScore.textContent = `Your final score is: ${score}`;
+            gameOverMenu.style.display = 'block';
+            clearTimeout(animationFrame);
+            animationFrame = null;
         }
     }
 
