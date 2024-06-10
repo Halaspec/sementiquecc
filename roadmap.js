@@ -1,6 +1,14 @@
 window.onload = function() {
-    initRoadmap();
+    initRoadmap();  // Initialize the roadmap after everything is loaded
 };
+
+window.addEventListener('resize', function() {
+    // Refresh Muuri grid on window resize to ensure layout updates
+    boardGrid.refreshItems().layout();
+    columnGrids.forEach(function(grid) {
+        grid.refreshItems().layout();
+    });
+});
 
 function initRoadmap() {
     var dragContainer = document.querySelector('.drag-container');
@@ -47,11 +55,11 @@ function initRoadmap() {
         layoutOnInit: true
     });
 
-    // Optional: Refresh all grids to ensure correct layout
+    // Refresh the layout after initialization to ensure everything is correctly positioned
     setTimeout(function() {
         boardGrid.refreshItems().layout();
         columnGrids.forEach(function(grid) {
             grid.refreshItems().layout();
         });
-    }, 500); // This delay can be adjusted or removed based on your needs
+    }, 500); // Delay can be adjusted based on your specific needs
 }
