@@ -13,14 +13,15 @@
             <header>
                 <h1>My Portfolio</h1>
                 <nav>
-                    <span class="language-selector">
-                        &#127760; 
-                        <select id="languageSelect" onchange="changeLanguage(this.value)">
-                            <option value="en">ENG</option>
-                            <option value="fr">FR</option>
-                            <option value="es">ESP</option>
-                        </select>
-                    </span>
+<span class="language-selector">
+    Language: 
+    <select id="languageSelect" onchange="changeLanguage(this.value)">
+        <option value="en">ENG</option>
+        <option value="fr">FR</option>
+        <option value="es">ESP</option>
+    </select>
+</span>
+
                     <xsl:for-each select="portfolio/menu/item">
                         <a href="javascript:void(0)" onclick="showContent('{position()}')">
                             <xsl:value-of select="name/lang[@code=$language]"/>
