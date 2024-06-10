@@ -31,10 +31,7 @@
         <section id="home" class="content active">
             <h1 data-en="Welcome to My Portfolio" data-fr="Bienvenue dans mon portefeuille" data-es="Bienvenido a mi portafolio">Welcome to My Portfolio</h1>
             <p data-en="This is the home section." data-fr="Ceci est la section d'accueil." data-es="Esta es la sección de inicio.">This is the home section.</p>
-            <div id="snake-game">
-                <canvas id="snake-canvas" width="900" height="600"></canvas>
-                <p id="snake-instructions" data-en="Press Space to Start" data-fr="Appuyez sur Espace pour commencer" data-es="Presiona Espacio para comenzar">Press Space to Start</p>
-            </div>
+            <button id="open-game" data-en="Play Snake Game" data-fr="Jouer au jeu du serpent" data-es="Jugar al juego de la serpiente">Play Snake Game</button>
         </section>
         <section id="about" class="content">
             <h1 data-en="About Me" data-fr="À propos de moi" data-es="Acerca de mí">About Me</h1>
@@ -88,6 +85,16 @@
                 <button type="submit" data-en="Send" data-fr="Envoyer" data-es="Enviar">Send</button>
                 <div id="formMessage" class="form-message"></div>
             </form>
+        </div>
+    </div>
+
+    <!-- Game Modal -->
+    <div id="gameModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <button id="fullscreen-button">Fullscreen</button>
+            <canvas id="snake-canvas" width="900" height="600"></canvas>
+            <p id="snake-instructions" data-en="Press Space to Start" data-fr="Appuyez sur Espace pour commencer" data-es="Presiona Espacio para comenzar">Press Space to Start</p>
         </div>
     </div>
 

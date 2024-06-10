@@ -9,6 +9,7 @@ window.onload = function () {
     var score = 0;
     var snake;
     var ball;
+    var animationFrame;
 
     function init() {
         canvas.style.border = "5px solid black";
@@ -32,7 +33,7 @@ window.onload = function () {
             snake.body.unshift([snake.body[0][0] - 30, snake.body[0][1]]);
         }
         snake.colision();
-        setTimeout(refreshCanvas, delay);
+        animationFrame = setTimeout(refreshCanvas, delay);
     }
 
     function drawScore() {
@@ -138,13 +139,13 @@ window.onload = function () {
     }
 
     document.getElementById('snake-instructions').addEventListener('click', function() {
-        requestAnimationFrame(init);
+        init();
         document.getElementById('snake-instructions').style.display = 'none';
     });
 
     document.addEventListener('keydown', function(e) {
         if (e.code === 'Space' && !animationFrame) {
-            requestAnimationFrame(init);
+            init();
             document.getElementById('snake-instructions').style.display = 'none';
         }
     });

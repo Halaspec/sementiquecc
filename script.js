@@ -11,7 +11,10 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Modal elements
     const contactModal = document.getElementById('contactModal');
-    const closeButton = document.querySelector('.close-button');
+    const gameModal = document.getElementById('gameModal');
+    const closeButtons = document.querySelectorAll('.close-button');
+    const openGameButton = document.getElementById('open-game');
+    const fullscreenButton = document.getElementById('fullscreen-button');
 
     // Loader
     const loader = document.getElementById('loader');
@@ -67,13 +70,19 @@ document.addEventListener("DOMContentLoaded", function() {
         menuToggle.classList.remove('active');
     });
 
-    closeButton.addEventListener('click', () => {
-        contactModal.style.display = 'none';
+    closeButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            contactModal.style.display = 'none';
+            gameModal.style.display = 'none';
+        });
     });
 
     window.addEventListener('click', (e) => {
         if (e.target === contactModal) {
             contactModal.style.display = 'none';
+        }
+        if (e.target === gameModal) {
+            gameModal.style.display = 'none';
         }
     });
 
@@ -128,4 +137,22 @@ document.addEventListener("DOMContentLoaded", function() {
     const savedLanguage = localStorage.getItem('language') || 'en';
     languageSelect.value = savedLanguage;
     setLanguage(savedLanguage);
+
+    // Game modal
+    openGameButton.addEventListener('click', () => {
+        gameModal.style.display = 'flex';
+    });
+
+    fullscreenButton.addEventListener('click', () => {
+        const canvas = document.getElementById('snake-canvas');
+        if (canvas.requestFullscreen) {
+            canvas.requestFullscreen();
+        } else if (canvas.mozRequestFullScreen) { // Firefox
+            canvas.mozRequestFullScreen();
+        } else if (canvas.webkitRequestFullscreen) { // Chrome, Safari and Opera
+            canvas.webkitRequestFullscreen();
+        } else if (canvas.msRequestFullscreen) { // IE/Edge
+            canvas.msRequestFullscreen();
+        }
+    });
 });
