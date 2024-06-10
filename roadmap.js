@@ -1,10 +1,10 @@
-window.onload = function () {
+window.addEventListener('load', function () {
     var dragContainer = document.querySelector('.drag-container');
     var itemContainers = [].slice.call(document.querySelectorAll('.board-column-content'));
     var columnGrids = [];
     var boardGrid;
 
-    // Init the column grids so we can drag those items around.
+    // Initialize the column grids so we can drag those items around.
     itemContainers.forEach(function (container) {
         var grid = new Muuri(container, {
             items: '.board-item',
@@ -22,25 +22,33 @@ window.onload = function () {
                 }
             },
         })
-            .on('dragInit', function (item) {
-                item.getElement().style.width = item.getWidth() + 'px';
-                item.getElement().style.height = item.getHeight() + 'px';
-            })
-            .on('dragReleaseEnd', function (item) {
-                item.getElement().style.width = '';
-                item.getElement().style.height = '';
-                item.getGrid().refreshItems([item]);
-            })
-            .on('layoutStart', function () {
-                boardGrid.refreshItems().layout();
-            });
+        .on('dragInit', function (item) {
+            item.getElement().style.width = item.getWidth() + 'px';
+            item.getElement().style.height = item.getHeight() + 'px';
+        })
+        .on('dragReleaseEnd', function (item) {
+            item.getElement().style.width = '';
+            item.getElement().style.height = '';
+            item.getGrid().refreshItems([item]);
+        })
+        .on('layoutStart', function () {
+            boardGrid.refreshItems().layout();
+        });
 
         columnGrids.push(grid);
     });
 
-    // Init board grid so we can drag those columns around.
+    // Initialize the board grid so we can drag those columns around.
     boardGrid = new Muuri('.board', {
         dragEnabled: true,
         dragHandle: '.board-column-header'
     });
-}
+
+    // Refresh the layout to ensure everything is correctly positioned
+    setTimeout(function() {
+        boardGrid.refreshItems().layout();
+        columnGrids.forEach(function(grid) {
+            grid.refreshItems().layout();
+        });
+    }, 100);
+});
