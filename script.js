@@ -1,53 +1,97 @@
-function showContent(id) {
-    var contents = document.querySelectorAll('.content');
-    contents.forEach(function(content) {
-        content.style.display = 'none';
+document.addEventListener("DOMContentLoaded", function() {
+    const menuToggle = document.querySelector('.menu-toggle');
+    const menu = document.querySelector('.menu');
+    const menuLinks = document.querySelectorAll('.menu a');
+    const contentSections = document.querySelectorAll('.content');
+    const contactForm = document.getElementById('contactForm');
+    const formMessage = document.getElementById('formMessage');
+    const projectTitles = document.querySelectorAll('.project-title');
+    const logo = document.querySelector('.logo');
+
+    // Modal elements
+    const contactModal = document.getElementById('contactModal');
+    const closeButton = document.querySelector('.close-button');
+
+    menuToggle.addEventListener('click', () => {
+        menu.classList.toggle('active');
+        menuToggle.classList.toggle('active');
     });
-    document.getElementById(id).style.display = 'block';
-}
 
-function changeLanguage(language) {
-    localStorage.setItem('language', language);
-    location.reload();
-}
+    menuLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetId = link.getAttribute('href').substring(1);
 
-async function transformXML(language) {
-    try {
-        const [xmlResponse, xslResponse] = await Promise.all([
-            fetch('portfolio.xml'),
-            fetch('portfolio.xsl')
-        ]);
+            if (targetId === 'contact') {
+                contactModal.style.display = 'flex';
+            } else {
+                contentSections.forEach(section => {
+                    if (section.id === targetId) {
+                        section.classList.add('active');
+                    } else {
+                        section.classList.remove('active');
+                    }
+                });
+                menu.classList.remove('active');
+                menuToggle.classList.remove('active');
+            }
+        });
+    });
 
-        const xmlText = await xmlResponse.text();
-        const xslText = await xslResponse.text();
+    logo.addEventListener('click', () => {
+        contentSections.forEach(section => {
+            if (section.id === 'home') {
+                section.classList.add('active');
+            } else {
+                section.classList.remove('active');
+            }
+        });
+        menu.classList.remove('active');
+        menuToggle.classList.remove('active');
+    });
 
-        const parser = new DOMParser();
-        const xml = parser.parseFromString(xmlText, 'text/xml');
-        const xsl = parser.parseFromString(xslText, 'text/xml');
+    closeButton.addEventListener('click', () => {
+        contactModal.style.display = 'none';
+    });
 
-        const processor = new XSLTProcessor();
-        processor.importStylesheet(xsl);
-        processor.setParameter(null, 'language', language);
+    window.addEventListener('click', (e) => {
+        if (e.target === contactModal) {
+            contactModal.style.display = 'none';
+        }
+    });
 
-        const resultDocument = processor.transformToDocument(xml);
-        const resultHtml = new XMLSerializer().serializeToString(resultDocument);
+    contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const email = document.getElementById('email').value;
+        const message = document.getElementById('message').value;
 
-        document.getElementById('content-container').innerHTML = resultHtml;
-    } catch (error) {
-        console.error("Error loading XML or XSL:", error);
+        if (validateEmail(email) && message.trim() !== "") {
+            formMessage.textContent = "Thank you for your message!";
+            formMessage.style.color = 'green';
+            formMessage.style.display = 'block';
+            contactForm.reset();
+
+            setTimeout(() => {
+                formMessage.style.display = 'none';
+                contactModal.style.display = 'none';
+            }, 3000);
+        } else {
+            formMessage.textContent = "Please enter a valid email and message.";
+            formMessage.style.color = 'red';
+            formMessage.style.display = 'block';
+        }
+    });
+
+    function validateEmail(email) {
+        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return re.test(String(email).toLowerCase());
     }
-}
 
-function setLanguage(language) {
-    localStorage.setItem('language', language);
-    transformXML(language);
-}
-
-function loadLanguage() {
-    const language = localStorage.getItem('language') || 'en';
-    transformXML(language);
-}
-
-document.addEventListener('DOMContentLoaded', (event) => {
-    loadLanguage();
+    projectTitles.forEach(title => {
+        title.addEventListener('click', () => {
+            const targetId = title.getAttribute('data-target');
+            const description = document.getElementById(targetId);
+            description.style.display = description.style.display === 'block' ? 'none' : 'block';
+        });
+    });
 });
