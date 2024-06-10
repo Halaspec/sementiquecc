@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const formMessage = document.getElementById('formMessage');
     const projectTitles = document.querySelectorAll('.project-title');
     const logo = document.querySelector('.logo');
+    const languageSelect = document.getElementById('languageSelect');
 
     // Modal elements
     const contactModal = document.getElementById('contactModal');
@@ -94,4 +95,21 @@ document.addEventListener("DOMContentLoaded", function() {
             description.style.display = description.style.display === 'block' ? 'none' : 'block';
         });
     });
+
+    // Language selector
+    languageSelect.addEventListener('change', (e) => {
+        const language = e.target.value;
+        setLanguage(language);
+        localStorage.setItem('language', language);
+    });
+
+    function setLanguage(language) {
+        document.querySelectorAll('[data-en]').forEach(element => {
+            element.textContent = element.getAttribute(`data-${language}`);
+        });
+    }
+
+    const savedLanguage = localStorage.getItem('language') || 'en';
+    languageSelect.value = savedLanguage;
+    setLanguage(savedLanguage);
 });

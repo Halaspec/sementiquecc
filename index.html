@@ -8,44 +8,50 @@
 </head>
 <body>
     <header>
-        <a href="#home" class="logo">My Portfolio</a>
+        <a href="#home" class="logo" data-en="My Portfolio" data-fr="Mon Portefeuille">My Portfolio</a>
         <nav>
             <ul class="menu">
-                <li><a href="#home" data-target="home">Home</a></li>
-                <li><a href="#about" data-target="about">About</a></li>
-                <li><a href="#projects" data-target="projects">Projects</a></li>
-                <li><a href="#contact" data-target="contact">Contact</a></li>
+                <li><a href="#home" data-target="home" data-en="Home" data-fr="Accueil">Home</a></li>
+                <li><a href="#about" data-target="about" data-en="About" data-fr="À propos">About</a></li>
+                <li><a href="#projects" data-target="projects" data-en="Projects" data-fr="Projets">Projects</a></li>
+                <li><a href="#contact" data-target="contact" data-en="Contact" data-fr="Contact">Contact</a></li>
+                <li>
+                    <select id="languageSelect">
+                        <option value="en">English</option>
+                        <option value="fr">French</option>
+                    </select>
+                </li>
             </ul>
         </nav>
         <button class="menu-toggle">☰</button>
     </header>
     <main>
         <section id="home" class="content active">
-            <h1>Welcome to My Portfolio</h1>
-            <p>This is the home section.</p>
+            <h1 data-en="Welcome to My Portfolio" data-fr="Bienvenue dans mon portefeuille">Welcome to My Portfolio</h1>
+            <p data-en="This is the home section." data-fr="Ceci est la section d'accueil.">This is the home section.</p>
         </section>
         <section id="about" class="content">
-            <h1>About Me</h1>
+            <h1 data-en="About Me" data-fr="À propos de moi">About Me</h1>
             <img src="your-photo.jpg" alt="Your Photo" class="about-photo">
-            <p>I am an Algerian developer currently working as a system administrator apprentice.</p>
+            <p data-en="I am an Algerian developer currently working as a system administrator apprentice." data-fr="Je suis un développeur algérien travaillant actuellement en tant qu'apprenti administrateur système.">I am an Algerian developer currently working as a system administrator apprentice.</p>
         </section>
         <section id="projects" class="content">
-            <h1>My Projects</h1>
+            <h1 data-en="My Projects" data-fr="Mes Projets">My Projects</h1>
             <div class="project-card">
-                <h2 class="project-title" data-target="project1">Project Title 1</h2>
-                <p id="project1" class="project-description">This is the description of project 1. It includes details about the technologies used, the problem it solves, and the outcome of the project.</p>
+                <h2 class="project-title" data-target="project1" data-en="Project Title 1" data-fr="Titre du projet 1">Project Title 1</h2>
+                <p id="project1" class="project-description" data-en="This is the description of project 1. It includes details about the technologies used, the problem it solves, and the outcome of the project." data-fr="Ceci est la description du projet 1. Il inclut des détails sur les technologies utilisées, le problème qu'il résout et le résultat du projet.">This is the description of project 1. It includes details about the technologies used, the problem it solves, and the outcome of the project.</p>
             </div>
             <div class="project-card">
-                <h2 class="project-title" data-target="project2">Project Title 2</h2>
-                <p id="project2" class="project-description">This is the description of project 2. It includes details about the technologies used, the problem it solves, and the outcome of the project.</p>
+                <h2 class="project-title" data-target="project2" data-en="Project Title 2" data-fr="Titre du projet 2">Project Title 2</h2>
+                <p id="project2" class="project-description" data-en="This is the description of project 2. It includes details about the technologies used, the problem it solves, and the outcome of the project." data-fr="Ceci est la description du projet 2. Il inclut des détails sur les technologies utilisées, le problème qu'il résout et le résultat du projet.">This is the description of project 2. It includes details about the technologies used, the problem it solves, and the outcome of the project.</p>
             </div>
             <div class="project-card">
-                <h2 class="project-title" data-target="project3">Project Title 3</h2>
-                <p id="project3" class="project-description">This is the description of project 3. It includes details about the technologies used, the problem it solves, and the outcome of the project.</p>
+                <h2 class="project-title" data-target="project3" data-en="Project Title 3" data-fr="Titre du projet 3">Project Title 3</h2>
+                <p id="project3" class="project-description" data-en="This is the description of project 3. It includes details about the technologies used, the problem it solves, and the outcome of the project." data-fr="Ceci est la description du projet 3. Il inclut des détails sur les technologies utilisées, le problème qu'il résout et le résultat du projet.">This is the description of project 3. It includes details about the technologies used, the problem it solves, and the outcome of the project.</p>
             </div>
             <div class="project-card">
-                <h2 class="project-title" data-target="project4">Project Title 4</h2>
-                <p id="project4" class="project-description">This is the description of project 4. It includes details about the technologies used, the problem it solves, and the outcome of the project.</p>
+                <h2 class="project-title" data-target="project4" data-en="Project Title 4" data-fr="Titre du projet 4">Project Title 4</h2>
+                <p id="project4" class="project-description" data-en="This is the description of project 4. It includes details about the technologies used, the problem it solves, and the outcome of the project." data-fr="Ceci est la description du projet 4. Il inclut des détails sur les technologies utilisées, le problème qu'il résout et le résultat du projet.">This is the description of project 4. It includes details about the technologies used, the problem it solves, and the outcome of the project.</p>
             </div>
         </section>
     </main>
@@ -54,17 +60,17 @@
     <div id="contactModal" class="modal">
         <div class="modal-content">
             <span class="close-button">&times;</span>
-            <h1>Contact Me</h1>
+            <h1 data-en="Contact Me" data-fr="Contactez-moi">Contact Me</h1>
             <form id="contactForm">
                 <div>
-                    <label for="email">Email:</label>
+                    <label for="email" data-en="Email:" data-fr="Email:">Email:</label>
                     <input type="email" id="email" name="email" required>
                 </div>
                 <div>
-                    <label for="message">Message:</label>
+                    <label for="message" data-en="Message:" data-fr="Message:">Message:</label>
                     <textarea id="message" name="message" required></textarea>
                 </div>
-                <button type="submit">Send</button>
+                <button type="submit" data-en="Send" data-fr="Envoyer">Send</button>
                 <div id="formMessage" class="form-message"></div>
             </form>
         </div>

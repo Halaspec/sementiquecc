@@ -189,3 +189,18 @@ form button:hover {
     cursor: pointer;
     color: #333;
 }
+
+/* Language selector styles */
+#languageSelect {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 8px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#languageSelect option {
+    color: black;
+}
