@@ -74,7 +74,6 @@ document.addEventListener("DOMContentLoaded", function() {
         button.addEventListener('click', () => {
             contactModal.style.display = 'none';
             gameModal.style.display = 'none';
-            resetGame();
         });
     });
 
@@ -84,7 +83,6 @@ document.addEventListener("DOMContentLoaded", function() {
         }
         if (e.target === gameModal) {
             gameModal.style.display = 'none';
-            resetGame();
         }
     });
 
@@ -157,10 +155,4 @@ document.addEventListener("DOMContentLoaded", function() {
             canvas.msRequestFullscreen();
         }
     });
-
-    function resetGame() {
-        clearTimeout(animationFrame);
-        animationFrame = null;
-        window.location.reload(); // Reload the page
-    }
 });
