@@ -3,6 +3,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    overflow: hidden; /* Prevent scrolling during loading */
 }
 
 header {
@@ -48,10 +49,14 @@ main {
 
 .content {
     display: none;
+    opacity: 0;
+    transform: translateX(-100%);
+    transition: all 0.5s ease;
 }
 
 .content.active {
-    display: block;
+    opacity: 1;
+    transform: translateX(0);
 }
 
 .about-photo {
@@ -203,4 +208,33 @@ form button:hover {
 
 #languageSelect option {
     color: black;
+}
+
+/* Loader styles */
+.loader {
+    position: fixed;
+    z-index: 10000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loader::before {
+    content: "";
+    width: 40px;
+    height: 40px;
+    border: 4px solid #333;
+    border-top: 4px solid transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }

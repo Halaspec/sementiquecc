@@ -13,6 +13,14 @@ document.addEventListener("DOMContentLoaded", function() {
     const contactModal = document.getElementById('contactModal');
     const closeButton = document.querySelector('.close-button');
 
+    // Loader
+    const loader = document.getElementById('loader');
+
+    window.addEventListener('load', () => {
+        loader.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    });
+
     menuToggle.addEventListener('click', () => {
         menu.classList.toggle('active');
         menuToggle.classList.toggle('active');
@@ -27,12 +35,16 @@ document.addEventListener("DOMContentLoaded", function() {
                 contactModal.style.display = 'flex';
             } else {
                 contentSections.forEach(section => {
-                    if (section.id === targetId) {
-                        section.classList.add('active');
-                    } else {
-                        section.classList.remove('active');
-                    }
+                    section.classList.remove('active');
+                    section.style.display = 'none';
                 });
+
+                const targetSection = document.getElementById(targetId);
+                targetSection.style.display = 'block';
+                setTimeout(() => {
+                    targetSection.classList.add('active');
+                }, 20); // Delay to ensure display is set before adding active class
+                
                 menu.classList.remove('active');
                 menuToggle.classList.remove('active');
             }
@@ -41,12 +53,16 @@ document.addEventListener("DOMContentLoaded", function() {
 
     logo.addEventListener('click', () => {
         contentSections.forEach(section => {
-            if (section.id === 'home') {
-                section.classList.add('active');
-            } else {
-                section.classList.remove('active');
-            }
+            section.classList.remove('active');
+            section.style.display = 'none';
         });
+
+        const homeSection = document.getElementById('home');
+        homeSection.style.display = 'block';
+        setTimeout(() => {
+            homeSection.classList.add('active');
+        }, 20); // Delay to ensure display is set before adding active class
+
         menu.classList.remove('active');
         menuToggle.classList.remove('active');
     });
