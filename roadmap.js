@@ -1,5 +1,4 @@
 window.onload = function() {
-    // Code to initialize Muuri here
     initRoadmap();
 };
 
@@ -48,10 +47,11 @@ function initRoadmap() {
         layoutOnInit: true
     });
 
+    // Optional: Refresh all grids to ensure correct layout
     setTimeout(function() {
         boardGrid.refreshItems().layout();
         columnGrids.forEach(function(grid) {
             grid.refreshItems().layout();
         });
-    }, 500); // Ensure all layouts are refreshed after a slight delay
+    }, 500); // This delay can be adjusted or removed based on your needs
 }
