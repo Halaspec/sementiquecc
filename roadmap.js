@@ -63,3 +63,44 @@ function initRoadmap() {
         });
     }, 500); // Delay can be adjusted based on your specific needs
 }
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    initRoadmap();  // Make sure to initialize the roadmap first
+    const roadmapButton = document.getElementById('roadmapButton');
+    roadmapButton.addEventListener('click', function() {
+        // This function will trigger the recalculation of the grid layout
+        refreshGrids();
+    });
+});
+
+function initRoadmap() {
+    var dragContainer = document.querySelector('.drag-container');
+    var itemContainers = [].slice.call(document.querySelectorAll('.board-column-content'));
+    var columnGrids = [];
+    window.boardGrid = new Muuri('.board', {
+        dragEnabled: true,
+        dragHandle: '.board-column-header',
+        layoutOnInit: true
+    });
+
+    itemContainers.forEach(function (container) {
+        var grid = new Muuri(container, {
+            items: '.board-item',
+            dragEnabled: true,
+            dragSort: function () {
+                return columnGrids;
+            },
+            dragContainer: dragContainer
+        });
+        columnGrids.push(grid);
+    });
+    window.columnGrids = columnGrids; // Make sure grids are accessible globally or via a broader scope
+}
+
+function refreshGrids() {
+    boardGrid.refreshItems().layout();
+    columnGrids.forEach(grid => {
+        grid.refreshItems().layout();
+    });
+}
