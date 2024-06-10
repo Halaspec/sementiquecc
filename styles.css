@@ -268,3 +268,19 @@ form button:hover {
     padding: 10px;
     border-radius: 5px;
 }
+
+section {
+    background-color: transparent;
+    backdrop-filter: blur(100px);
+    background: rgba(255, 255, 255, 1);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.33);
+    margin: 5%;
+    padding: 5%;}
+
+
+
+
