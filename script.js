@@ -26,18 +26,18 @@ function loadXMLDoc(filename) {
 
 async function transformXML(language) {
     try {
-        const xml = await loadXMLDoc('menu.xml');
-        const xsl = await loadXMLDoc('menu.xsl');
+        const xml = await loadXMLDoc('portfolio.xml');
+        const xsl = await loadXMLDoc('portfolio.xsl');
 
         if (window.XSLTProcessor) {
             const xsltProcessor = new XSLTProcessor();
             xsltProcessor.importStylesheet(xsl);
             xsltProcessor.setParameter(null, "language", language);
             const resultDocument = xsltProcessor.transformToFragment(xml, document);
-            document.getElementById('menu-container').appendChild(resultDocument);
+            document.getElementById('content-container').appendChild(resultDocument);
         } else {
             const resultDocument = xml.transformNode(xsl);
-            document.getElementById('menu-container').innerHTML = resultDocument;
+            document.getElementById('content-container').innerHTML = resultDocument;
         }
     } catch (error) {
         console.error("Error loading XML or XSL:", error);
