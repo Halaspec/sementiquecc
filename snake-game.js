@@ -1,8 +1,7 @@
 window.onload = function () {
-
     var canvas = document.getElementById('snake-canvas');
     var ctx = canvas.getContext('2d');
-    var delay = 75; //1s
+    var delay = 75;
     var blocksize = 30;
     var score = 0;
     var snake;
@@ -24,7 +23,6 @@ window.onload = function () {
         drawScore();
         snake.draw();
         ball.draw();
-        // Check if the snake eat the Ball
         if (ball.x == snake.body[snake.body.length - 1][0] && ball.y == snake.body[snake.body.length - 1][1]) {
             score++;
             ball.replace();
@@ -60,6 +58,7 @@ window.onload = function () {
             this.body.shift();
             this.body.push([this.body[this.body.length - 1][0] + push, this.body[this.body.length - 1][1]]);
         };
+
         this.moveY = function (push) {
             this.body.shift();
             this.body.push([this.body[this.body.length - 1][0], this.body[this.body.length - 1][1] + push]);
@@ -88,6 +87,7 @@ window.onload = function () {
             if (this.x != 0) this.moveX(this.x);
             if (this.y != 0) this.moveY(this.y);
         }
+
         this.lose = function () {
             alert(`Your final score is: ${score}`);
             clearTimeout(animationFrame);
@@ -113,53 +113,39 @@ window.onload = function () {
         }
     }
 
-    document.onkeydown = function handleKey(e) {
-        var key = e.keyCode;
-        var pushX = 0;
-        var pushY = 0;
-        switch (key) {
-            case 37:
-                pushX = -30;
-                pushY = 0;
-                break;
-            case 38:
-                pushX = 0;
-                pushY = -30;
-                break;
-            case 39:
-                pushX = 30;
-                pushY = 0;
-                break;
-            case 40:
-                pushX = 0;
-                pushY = 30;
-        }
+    document.addEventListener('keydown', function(e) {
         if (animationFrame !== null) {
+            var pushX = 0;
+            var pushY = 0;
+            switch (e.keyCode) {
+                case 37:
+                    pushX = -30; pushY = 0;
+                    break;
+                case 38:
+                    pushX = 0; pushY = -30;
+                    break;
+                case 39:
+                    pushX = 30; pushY = 0;
+                    break;
+                case 40:
+                    pushX = 0; pushY = 30;
+                    break;
+            }
             snake.setdirection(pushX, pushY);
         }
-    }
-
-    document.getElementById('snake-instructions').addEventListener('click', function() {
-        init();
-        document.getElementById('snake-instructions').style.display = 'none';
-    });
-
-    document.addEventListener('keydown', function(e) {
         if (e.code === 'Space' && !animationFrame) {
             init();
             document.getElementById('snake-instructions').style.display = 'none';
         }
     });
 
-    function resetGame() {
-        score = 0;
-        resetSnake(); // center the snake
-        ball.replace();
-        refreshCanvas();
-    }
+    document.getElementById('snake-instructions').addEventListener('click', function() {
+        init();
+        document.getElementById('snake-instructions').style.display = 'none';
+    });
 
     function resetSnake() {
-        var body = [[360, 270], [390, 270], [420, 270], [450, 270]]; // center the snake
+        var body = [[360, 270], [390, 270], [420, 270], [450, 270]];
         snake = new Snake(body, 30, 0);
     }
 
