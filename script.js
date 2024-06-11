@@ -156,3 +156,19 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 });
+
+
+function setLanguage(language) {
+    document.querySelectorAll('[data-en], [data-fr], [data-ar]').forEach(element => {
+        element.textContent = element.getAttribute(`data-${language}`);
+    });
+    localStorage.setItem('language', language);
+}
+
+
+document.addEventListener('keydown', function(e) {
+    if (e.code === 'Space') {
+        initSnakeGame(); // Initializes the game if not already
+        init(); // Specific start/restart function within the game script
+    }
+});
