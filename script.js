@@ -163,7 +163,7 @@ function setLanguage(language) {
         element.textContent = element.getAttribute(`data-${language}`);
     });
     localStorage.setItem('language', language);
-}
+};
 
 
 document.addEventListener('keydown', function(e) {
