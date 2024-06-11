@@ -318,3 +318,10 @@ main {
     width: 70px;
     height: 70px;
   }
+
+
+  #rightContent {
+    position: absolute;
+    top: 150%;
+    width: 50%;
+  }
