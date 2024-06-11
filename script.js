@@ -375,12 +375,14 @@ function refreshGrids() {
 }
 
 
-// Adding a click listener to the "roadmap" section to refresh grids
-document.getElementById('roadmapButton').addEventListener('click', function() {
-    refreshGrids();
-    initRoadmap();
+document.addEventListener('DOMContentLoaded', function () {
+    initRoadmap();  // Make sure to initialize the roadmap first
+    const roadmapButton = document.getElementById('roadmapButton');
+    roadmapButton.addEventListener('click', function() {
+        // This function will trigger the recalculation of the grid layout
+        refreshGrids();
+    });
 });
-
 // Adding a key listener for launching the snake game when the spacebar is pressed
 document.addEventListener('keydown', function(e) {
     if (e.code === 'Space') { // Correct way to check for spacebar press in JavaScript
